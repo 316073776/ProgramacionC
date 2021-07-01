@@ -1,0 +1,74 @@
+void OrdenamientoIntercambio (pNodo P){------------------------
+
+pNodo Q;	
+	pNodo primero, segundo;
+	int aux;
+	
+	for (primero=P;primero->liga!=NULL;primero=primero->liga){
+		for(segundo=primero->liga;segundo!=NULL;segundo=segundo->liga){
+			if (primero->informacion > segundo->informacion){
+				aux=segundo->informacion;
+				segundo->informacion=primero->informacion;
+				primero->informacion=aux;
+			}
+		}
+	}
+	
+	
+	Q=P;
+	printf("\n\t");
+	do {
+		printf("%d ", Q->informacion);
+		Q=Q->liga;
+	} while (Q != NULL);
+	
+	printf("\n\n");
+	system("pause");
+}
+
+
+314173777
+Quicksort-----------------
+lwh.free.fr/pages/algo/tri/tri_rapide_es.html
+void quick_sort (int *vector, int tamano) {
+    int pared, actual, pivote, tmp;
+    if (tamano < 2) return;
+    // el elemento de pivote es la más a la derecha
+    pivote = vector[tamano - 1];
+    pared  = actual = 0;
+    while (actual<tamano) {
+        if (vector[actual] <= pivote) {
+            if (pared != actual) {
+                tmp=vector[actual];
+                vector[actual]=vector[pared];
+                vector[pared]=tmp;              
+            }
+            pared ++;
+        }
+        actual ++;
+    }
+    quick_sort(vector, pared - 1);
+    quick_sort(vector + pared - 1, tamano - pared + 1);
+}
+
+
+Inserción--------------------
+http://lwh.free.fr/pages/algo/tri/tri_insertion_es.html
+void Insertion_sort(int* t)
+{
+    int i, j;
+    int actual;
+ 
+    for (i = 1; i < 20; i++) {
+        actual = t[i];
+        for (j = i; j > 0 && t[j - 1] > actual; j--) {
+            t[j] = t[j - 1];
+        }
+        t[j] = actual;
+    }
+}
+
+
+
+Busqueda secuencial------------
+
